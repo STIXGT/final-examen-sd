@@ -65,7 +65,7 @@ export default function Chat() {
                 src={
                   m.role === "user"
                     ? "/avatar.png"
-                    : "https://github.com/vercel.png"
+                    : "https://github.com/shadcn.png"
                 }
                 alt={`${m.role === "user" ? "User" : "AI"} Avatar`}
                 className="rounded-full"
