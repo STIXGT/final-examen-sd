@@ -8,7 +8,7 @@ interface IconButtonProps {
 const IconButton: React.FC<IconButtonProps> = ({ Icon }) => (
   <button
     className={cn(
-      "flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 p-2 hover:bg-white/30 transition-colors"
+      "flex items-center justify-center rounded-full bg-white/50 backdrop-blur-sm border border-white/30 p-2 hover:bg-white transition-colors"
     )}
   >
     <Icon size={17} />
