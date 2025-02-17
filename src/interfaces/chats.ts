@@ -1,18 +1,10 @@
-// Request types
-export interface ChatRequest {
-  message: string;
-  context?: string;
-  patientInfo?: {
-    age?: number;
-    weight?: number;
-    allergies?: string[];
-    currentMedications?: string[];
-  };
-}
-
-// Response types
-export interface ChatResponse {
-  response: string;
-  disclaimer?: string;
-  references?: string[];
-}
+export type UserInfo = {
+  age: number;
+  weight: number;
+  height: number;
+  sex: string;
+  allergies?: string[];
+  chronicConditions?: string[];
+  currentMedications?: string[];
+  step?: number;
+};
