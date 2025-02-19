@@ -15,7 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
 // Definir el esquema de validación con Zod
 const formSchema = z.object({
   age: z

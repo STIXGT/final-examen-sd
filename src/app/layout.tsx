@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BotMed - Tu asistente médico",
-  description: "BotMed es tu asistente médico personalizado",
+  title: "Home",
+  description: "User page",
 };
 
 export default function RootLayout({

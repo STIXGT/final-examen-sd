@@ -75,13 +75,7 @@ export default function Chat() {
               />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="flex items-center">
-                <h4 className="font-bold text-sm">
-                  {m.role === "user"
-                    ? `${data?.user?.user_metadata.full_name}`
-                    : "BotMed: "}
-                </h4>
-              </div>
+              <div className="flex items-center"></div>
               <p
                 className="text-gray-700 text-sm whitespace-pre-wrap"
                 dangerouslySetInnerHTML={{
