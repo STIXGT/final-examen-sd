@@ -40,13 +40,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(result.data);
     const { data, error } = await supabase
       .from("users")
       .insert([result.data])
       .select();
-    console.log(data);
-    console.log("ERRORSOTO", error);
     if (error) {
       return NextResponse.json(
         { error: "Error al crear el usuario" },

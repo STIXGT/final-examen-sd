@@ -21,9 +21,8 @@ export default function SideBar() {
       <div className="flex flex-col gap-4">
         <SignOutButton />
         <Link href="/home/settings">
-          <IconButton Icon={SettingsIcon} />
+          <IconButton Icon={User2Icon} />
         </Link>
-        <IconButton Icon={User2Icon} />
       </div>
     </div>
   );
