@@ -1,4 +1,10 @@
 import SideBar from "@/components/chat/sidebar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Settings",
+  description: "User page",
+};
 
 export default function ChatLayout({
   children,

@@ -8,20 +8,21 @@ import {
 } from "lucide-react";
 import IconButton from "./icon-button";
 import SignOutButton from "../sign-out-button";
+import Link from "next/dist/client/link";
 
 export default function SideBar() {
   return (
     <div className="flex flex-col rounded-2xl h-full items-center justify-between py-11 px-4">
-      <IconButton Icon={ChevronLeft} />
       <div className="flex flex-col gap-4">
-        <IconButton Icon={PlusIcon} />
-        <IconButton Icon={MessageCircleIcon} />
-        <IconButton Icon={Calendar1Icon} />
+        <Link href="/home">
+          <IconButton Icon={ChevronLeft} />
+        </Link>
       </div>
       <div className="flex flex-col gap-4">
         <SignOutButton />
-        <IconButton Icon={SettingsIcon} />
-        <IconButton Icon={User2Icon} />
+        <Link href="/home/settings">
+          <IconButton Icon={User2Icon} />
+        </Link>
       </div>
     </div>
   );
