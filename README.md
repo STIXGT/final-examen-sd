@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mi Aplicación - Proyecto Distribuido
 
-## Getting Started
+Este proyecto se compone de una aplicación web desarrollada con Next.js, que utiliza Supabase para gestionar la base de datos y autenticación, y se despliega en un entorno orquestado por Kubernetes. Además, se integra Minicuke para pruebas y validación del comportamiento de la aplicación.
 
-First, run the development server:
+## Tecnologías
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js**: Framework de React para aplicaciones del lado del servidor y generación de sitios estáticos.
+- **Supabase**: Plataforma Backend as a Service (BaaS) que proporciona base de datos, autenticación y almacenamiento.
+- **Kubernetes**: Sistema de orquestación de contenedores para despliegue, escalado y administración de la aplicación.
+- **Minicuke**: Herramienta enfocada en pruebas de integración y validación, que facilita la verificación de escenarios en el entorno distribuido.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Arquitectura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+La aplicación sigue una arquitectura distribuida en la que:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- El frontend se construye con Next.js, ofreciendo una experiencia interactiva y optimizada para SEO.
+- Supabase actúa como backend, gestionando los datos y autenticación de usuarios.
+- Kubernetes se encarga de desplegar y escalar los diferentes servicios que componen la aplicación.
+- Minicuke se integra para ejecutar pruebas automatizadas que aseguran la integridad del sistema durante cambios y despliegues.
 
-## Learn More
+## Despliegue
 
-To learn more about Next.js, take a look at the following resources:
+1. **Configuración del entorno**  
+   Asegúrate de tener configuradas las herramientas necesarias:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Node.js y npm para Next.js.
+   - Acceso a una instancia de Supabase.
+   - Kubernetes configurado (minikube o un clúster en la nube).
+   - Minicuke instalado para pruebas automatizadas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Construcción y Despliegue**
 
-## Deploy on Vercel
+   - Desarrolla y prueba la aplicación localmente con Next.js utilizando:
+     > npm run dev
+   - Configura el CI/CD para integrar los despliegues en Kubernetes.
+   - Para desplegar en Kubernetes, puedes usar comandos como:
+     > kubectl apply -f deployment.yaml  
+     > kubectl apply -f service.yaml
+   - Ejecuta las pruebas con Minicuke para validar la integridad de la aplicación antes de despliegues en producción.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Ejemplo de Archivo YAML para Despliegue**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   A continuación se muestra un ejemplo básico de un archivo YAML para desplegar la aplicación en Kubernetes:
+
+   ```yaml
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     name: mi-aplicacion-deployment
+     labels:
+       app: mi-aplicacion
+   spec:
+     replicas: 3
+     selector:
+       matchLabels:
+         app: mi-aplicacion
+     template:
+       metadata:
+         labels:
+           app: mi-aplicacion
+       spec:
+         containers:
+           - name: mi-aplicacion
+             image: mi-aplicacion:latest
+             ports:
+               - containerPort: 3000
+             env:
+               - name: SUPABASE_URL
+                 value: "https://tu-supabase-url.com"
+               - name: SUPABASE_KEY
+                 valueFrom:
+                   secretKeyRef:
+                     name: supabase-secret
+                     key: supabaseKey
+   ```
+
+   Y un ejemplo de archivo YAML para el servicio:
+
+   ```yaml
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: mi-aplicacion-service
+   spec:
+     selector:
+       app: mi-aplicacion
+     ports:
+       - protocol: TCP
+         port: 80
+         targetPort: 3000
+     type: LoadBalancer
+   ```
+
+4. **Monitoreo y Escalabilidad**
+   - Utiliza las herramientas de monitoreo de Kubernetes para observar el rendimiento y el estado de la aplicación.
+   - Ajusta la configuración del escalado automático en Kubernetes según la demanda.
+
+## Desarrollo y Contribución
+
+- Clona el repositorio y crea una rama para tus cambios.
+- Sigue las mejores prácticas de Next.js y Kubernetes.
+- Realiza pruebas locales utilizando Minicuke.
+- Realiza pull requests con una descripción detallada de los cambios.
+
+## Contacto
+
+Para más información o sugerencias, contacta al equipo de desarrollo.
