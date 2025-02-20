@@ -88,13 +88,13 @@ La aplicación sigue una arquitectura distribuida en la que:
    - Utiliza las herramientas de monitoreo de Kubernetes para observar el rendimiento y el estado de la aplicación.
    - Ajusta la configuración del escalado automático en Kubernetes según la demanda.
 
-## Desarrollo y Contribución
+##Imagenes del despliegue
+### 1. 
+![image](https://github.com/user-attachments/assets/3de092ad-1f0e-454b-b429-bddf5d9bbdb9)
+### 2.
+![image](https://github.com/user-attachments/assets/d310f2e7-90e5-4206-ad34-ba2e03acb27d)
+### 3.
+![image](https://github.com/user-attachments/assets/f126ea9d-4c36-46a0-965d-df3ff82ece4d)
+### 4.
+![image](https://github.com/user-attachments/assets/9ba0c49c-fc7a-4d9a-950f-221103f22612)
 
-- Clona el repositorio y crea una rama para tus cambios.
-- Sigue las mejores prácticas de Next.js y Kubernetes.
-- Realiza pruebas locales utilizando Minicuke.
-- Realiza pull requests con una descripción detallada de los cambios.
-
-## Contacto
-
-Para más información o sugerencias, contacta al equipo de desarrollo.
