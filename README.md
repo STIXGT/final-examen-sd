@@ -88,7 +88,7 @@ La aplicación sigue una arquitectura distribuida en la que:
    - Utiliza las herramientas de monitoreo de Kubernetes para observar el rendimiento y el estado de la aplicación.
    - Ajusta la configuración del escalado automático en Kubernetes según la demanda.
 
-##Imagenes del despliegue
+## Imagenes del despliegue
 ### 1. 
 ![image](https://github.com/user-attachments/assets/3de092ad-1f0e-454b-b429-bddf5d9bbdb9)
 ### 2.
