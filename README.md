@@ -64,14 +64,7 @@ La aplicación sigue una arquitectura distribuida en la que:
              image: mi-aplicacion:latest
              ports:
                - containerPort: 3000
-             env:
-               - name: SUPABASE_URL
-                 value: "https://tu-supabase-url.com"
-               - name: SUPABASE_KEY
-                 valueFrom:
-                   secretKeyRef:
-                     name: supabase-secret
-                     key: supabaseKey
+
    ```
 
    Y un ejemplo de archivo YAML para el servicio:
