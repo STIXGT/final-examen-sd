@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: examen-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: examen-app
+  template:
+    metadata:
+      labels:
+        app: examen-app
+    spec:
+      containers:
+        - name: examen-app
+          image: stixgt/examen-image:latest
+          ports:
+            - containerPort: 3000
